@@ -18,6 +18,8 @@ export const INITIAL_AGENTS: Agent[] = [
   { name: 'Weather Agent', description: 'Fetches weather information', status: 'inactive', capabilities: ['get_forecast'] },
 ];
 
+export const AGENT_NAMES = INITIAL_AGENTS.map(a => a.name);
+
 export const QUICK_ACTIONS = [
     { title: 'Ask a question', action: 'Ask "What is the capital of France?"', icon: 'ask' },
     { title: 'Launch an app', action: 'Launch VS Code', icon: 'launch' },

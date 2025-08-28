@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import type { Task, Notification, TaskStatus } from '../types';
-import { GoogleGenAI, Type } from '@google/genai';
+// FIX: Changed import to use package name instead of CDN URL.
+import { GoogleGenAI, Type } from "@google/genai";
 import { AGENT_NAMES } from '../constants';
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -92,8 +93,9 @@ export const useOrchestrator = () => {
           setTasks(prev => prev.map(t => {
             if (t.id !== rootTaskId) return t;
 
+            // FIX: Explicitly cast 'running' to TaskStatus to prevent type widening error.
             const updatedSubtasks = t.subTasks?.map(st => 
-              st.id === subTask.id ? { ...st, status: 'running' } : st
+              st.id === subTask.id ? { ...st, status: 'running' as TaskStatus } : st
             );
             return { ...t, subTasks: updatedSubtasks };
           }));

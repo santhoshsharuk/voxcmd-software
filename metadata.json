@@ -1,0 +1,5 @@
+{
+  "name": "VoxCMD UI Blueprint",
+  "description": "A React and Tailwind UI prototype for the VoxCMD desktop application, showcasing its command palette, agent management, and task timeline based on the provided architecture.",
+  "requestFramePermissions": []
+}
